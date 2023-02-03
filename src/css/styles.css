@@ -17,4 +17,22 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  text-align: center;
+}
+
+.list-style {
+  list-style-type: none;
+}
+
+.list-item {
+  margin: 10px;
+  
+}
+
+.flex {
+  display: flex;
+}
+
+.country-style {
+  font-size: 30px;
 }
