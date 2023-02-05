@@ -43,10 +43,9 @@ let filteredArray = data => { //wywolanie funkcji ktora filtruje otrzymane dane.
         clearCountries(); // znow czyszczę
         countryList.insertAdjacentHTML( //do ul wpisujemy proponowane nazwy krajow razem w flagą po lewe stronie, stad funkcja insertAdjHTML
             'beforeend',
-            data.map(el => `<ul class="list-style flex" 
-            <li class="list-item"><img src="${el.flags.svg}" width="50"/>
-            </li>
-            <li class="list-item">${el.name.official}</li></ul>`)
+            data.map(el => `<ul class="country-list">
+            <li class="list-item flex"><img src="${el.flags.svg}" width="70"/>
+            <p class="list-item">${el.name.official}</li></ul>`)
                 .join('') // map bierze dane, robi petle i zaleznie od tego, co chce, to on cos z tym robi. Map zwroci tablice. El->to jest element danych.
             //tworzę tag ul, nadaje klase. W li tworze img (bo flaga) el.flags.svg -> el bo kazdy element, a flags.svg bo w consoli jest takie rozszerzenie. Prosza nas o nazwe oficjalna kraju, wiec biore el i name.official.
             //Join-bo nie ma ani spacji ani przecinka, tylko puste miejsce.
@@ -58,21 +57,18 @@ let filteredArray = data => { //wywolanie funkcji ktora filtruje otrzymane dane.
       countryInfo.insertAdjacentHTML(
         // wrzucam do diva za pomocą metody insertAdjacentHTML
         'beforeend',
-        `<ul class="list-style">
-            <li class="list-item country-style">${data[0].name.official} 
-            </li>
-            <li class="list-item">
-            <img src="${data[0].flags.svg}" alt="Flag" width="150"/>
-            </li>
-            <li class="list-item">
-            Capital:${data[0].capital}
-            </li>
-            <li class="list-item">
-            Population: ${data[0].population}
-            </li>
-            <li class="list-item">
-            Languages: ${Object.values(data[0].languages).join(', ')}</li></ul>`
-        ); //data to jest tablica, a data[0] to pierwszy element tej tablicy
+        `<ul class="list-style"><li class="list-item country-style">${
+          data[0].name.official
+        }</li><li class="list-item"><img src="${
+          data[0].flags.svg
+        }" alt="Flag" width="150"/></li><li class="list-item">Capital: ${
+          data[0].capital
+        }</li><li class="list-item">Population: ${
+          data[0].population
+        }</li><li class="list-item">Languages: ${Object.values(
+          data[0].languages
+        ).join(', ')}</li></ul>`
+      ); //data to jest tablica, a data[0] to pierwszy element tej tablicy
         //languages-> tam jest wiecej niz jedna opcja (kilka języków), dlatego wartości obiektu
         //w join daje przecinek, w celu oddzielenia kilku jezykow.
     }
